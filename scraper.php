@@ -85,7 +85,7 @@ function storeJson($strData){
         $record["inserted"] = $jsonVar -> inserted;
         $record["immotype"] = $jsonVar -> immotype;
         $record["price"] = $jsonVar -> price;
-		    $record["rent"] = $jsonVar -> rent;
+	$record["rent"] = $jsonVar -> rent;
         //$record["commission"] = $jsonVar -> commission;
         $record["location"] = $jsonVar -> location;
         //$record["country"] = $jsonVar -> country;
@@ -154,12 +154,12 @@ function storeJson($strData){
         //$record["range_price_max"] = $jsonVar -> range_price -> max;
         
         //save the record
-        if ($record["price"] <> 0 or $record["rent"] <> 0 or $record["price_by_m2"] <> 0) {
+        //if ($record["price"] <> 0 or $record["rent"] <> 0 or $record["price_by_m2"] <> 0) {
            //print ($record['id']);
            //print_r ($record);
            scraperwiki::save_sqlite(array('id'), $record);
            print ($record['id']);
-        }
+        //}
     }    
 } 
 

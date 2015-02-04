@@ -67,7 +67,7 @@ function findAnnounces($strDataDom){
             //is it UTF format? just in case we convert it   
             $strDataUTF = iconv('UTF-8', 'ASCII//TRANSLIT', $strData);
             //the function will transfor the string into a json object and store it in the database
-            //storeJson($strDataUTF);
+            storeJson($strDataUTF);
         }
     }
 }
@@ -80,7 +80,7 @@ function storeJson($strData){
     //if the decode ended with no error
     if (json_last_error() === JSON_ERROR_NONE) { 
         $record["id"] = $jsonVar -> id;
-		    $record["submitter"] = $jsonVar -> submitter;
+        $record["submitter"] = $jsonVar -> submitter;
         //$record["modification_date"] = $jsonVar -> modification_date;
         $record["inserted"] = $jsonVar -> inserted;
         $record["immotype"] = $jsonVar -> immotype;
@@ -154,12 +154,12 @@ function storeJson($strData){
         //$record["range_price_max"] = $jsonVar -> range_price -> max;
         
         //save the record
-        //if ($record["price"] <> 0 or $record["rent"] <> 0 or $record["price_by_m2"] <> 0) {
+        if ($record["price"] <> 0 or $record["rent"] <> 0 or $record["price_by_m2"] <> 0) {
            //print ($record['id']);
            //print_r ($record);
            scraperwiki::save_sqlite(array('id'), $record);
-           print ($record['id']);
-        //}
+           //print ($record['id']);
+        }
     }    
 } 
 
